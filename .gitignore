@@ -1,18 +1,19 @@
-# Virtual environment
-expense/
-venv/
-
-# Python cache
+# Python
 __pycache__/
 *.pyc
 
 # Django
 db.sqlite3
+*.log
+
+# Virtual Environment
+expense/
+venv/
+env/
+
+# Environment variables
 .env
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
-
-# VS Code
-.vscode/
