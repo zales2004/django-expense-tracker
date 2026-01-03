@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Update Expense</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-gray-900 to-black text-gray-100">
+
+  <div class="w-full max-w-md bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+    <h2 class="text-2xl font-bold mb-6 text-center">✏️ Update Expense</h2>
+
+    <form method="post" class="space-y-4">
+      {% csrf_token %}
+
+      <input
+        name="title"
+        value="{{ expense.title }}"
+        required
+        class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20
+               focus:ring-2 focus:ring-indigo-500 outline-none" />
+
+      <input
+        name="amount"
+        type="number"
+        step="0.01"
+        value="{{ expense.amount }}"
+        required
+        class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20
+               focus:ring-2 focus:ring-indigo-500 outline-none" />
+
+      <input
+        name="date"
+        type="date"
+        value="{{ expense.date|date:'Y-m-d' }}"
+        required
+        class="w-full px-4 py-3 rounded-lg bg-black/30 border border-white/20
+               focus:ring-2 focus:ring-indigo-500 outline-none" />
+
+      <button
+        class="w-full py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600
+               font-semibold hover:scale-[1.02] transition">
+        Update Expense
+      </button>
+    </form>
+
+    <a href="/" class="block text-center text-gray-400 mt-6 hover:text-gray-300">
+      ← Back to Dashboard
+    </a>
+  </div>
+
+</body>
+</html>

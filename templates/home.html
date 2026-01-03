@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | Expense Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black text-gray-100">
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-8 py-4 border-b border-white/10 backdrop-blur">
+
+    <div class="flex items-center gap-6">
+      <a href="/"
+         class="text-xl font-semibold tracking-wide hover:text-indigo-400 transition">
+        💼 Expense Tracker
+      </a>
+
+      <a href="/"
+         class="text-sm text-indigo-400 font-semibold">
+        Home
+      </a>
+
+      <a href="/dashboard/"
+         class="text-sm text-gray-300 hover:text-white transition">
+        Dashboard
+      </a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <span class="text-sm text-gray-300">
+        {{ request.user.username }}
+      </span>
+
+      <form method="post" action="/logout/">
+        {% csrf_token %}
+        <button
+          class="px-4 py-2 rounded-lg bg-red-500/20 text-red-400
+                 hover:bg-red-500 hover:text-white transition">
+          Logout
+        </button>
+      </form>
+    </div>
+
+  </nav>
+
+  <!-- Hero Section -->
+  <main class="max-w-6xl mx-auto px-6 py-24 text-center">
+
+    <h1 class="text-5xl font-extrabold mb-6">
+      Welcome, <span class="text-indigo-400">{{ request.user.username }}</span> 👋
+    </h1>
+
+    <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-10">
+      Expense Tracker helps you monitor, categorize, and control your daily spending
+      with a clean, secure, and intuitive dashboard — all in one place.
+    </p>
+
+    <div class="flex justify-center gap-6">
+      <a href="/dashboard/"
+         class="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600
+                text-white font-semibold hover:scale-105 transition">
+        Go to Dashboard
+      </a>
+
+      <a href="/dashboard/#add-expense"
+         class="px-8 py-4 rounded-xl bg-white/10 border border-white/20
+                hover:bg-white/20 transition">
+        Add Expense
+      </a>
+    </div>
+
+  </main>
+
+</body>
+</html>
